@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacqueline Santos Gavião | Advogada Tributarista</title>
+<meta name="description" content="Jacqueline Santos Gavião - Advogada Tributarista em São Paulo. Consultoria e contencioso tributário, planejamento tributário e regularização fiscal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#122A43;
+    --navy-dark:#0B1D30;
+    --gold:#B9975B;
+    --gray-bg:#F7F6F3;
+    --text:#2B2B2B;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Source Sans 3', Arial, sans-serif; color:var(--text); line-height:1.65; background:#fff;}
+  h1,h2,h3{font-family:'Playfair Display', Georgia, serif; color:var(--navy);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .container{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .section{padding:80px 0;}
+  .section-alt{background:var(--gray-bg);}
+  .tag{display:inline-block; letter-spacing:2px; text-transform:uppercase; font-size:.75rem; color:var(--gold); font-weight:700; margin-bottom:14px;}
+  .section-title{font-size:2rem; margin-bottom:32px;}
+
+  /* Header */
+  header{position:fixed; top:0; left:0; right:0; background:rgba(11,29,48,.96); z-index:1000; box-shadow:0 2px 12px rgba(0,0,0,.15);}
+  .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1080px; margin:0 auto;}
+  .logo{color:#fff; font-family:'Playfair Display', serif; font-size:1.2rem; font-weight:700; letter-spacing:.5px;}
+  .logo span{color:var(--gold);}
+  nav ul{list-style:none; display:flex; gap:32px;}
+  nav a{color:#EDEDED; font-size:.95rem; font-weight:600; transition:color .2s;}
+  nav a:hover{color:var(--gold);}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;}
+  .menu-toggle span{width:26px; height:2px; background:#fff;}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%); color:#fff; padding:170px 0 100px; text-align:center;}
+  .hero .tag{color:var(--gold);}
+  .hero h1{color:#fff; font-size:2.6rem; margin-bottom:10px;}
+  .hero .subtitle{font-size:1.15rem; color:#D8DEE7; max-width:620px; margin:0 auto 12px;}
+  .hero .location{color:var(--gold); font-weight:600; margin-bottom:32px; display:block;}
+  .btn{display:inline-block; background:var(--gold); color:var(--navy-dark); font-weight:700; padding:14px 34px; border-radius:4px; transition:opacity .2s;}
+  .btn:hover{opacity:.85;}
+  .btn-outline{background:transparent; border:1px solid var(--gold); color:var(--gold); margin-left:14px;}
+
+  /* Bio */
+  .bio-grid{display:grid; grid-template-columns:1fr 1.3fr; gap:56px; align-items:start;}
+  .bio-photo{width:100%; aspect-ratio:3/4; border-radius:8px; background:linear-gradient(160deg,#1c3a5a,#0B1D30); display:flex; align-items:center; justify-content:center; color:#8fa3b8; font-size:.95rem; text-align:center; padding:20px;}
+  .bio-list{list-style:none; margin-top:20px;}
+  .bio-list li{padding:10px 0; border-bottom:1px solid #E5E1D8; font-size:.95rem;}
+  .bio-list li strong{color:var(--navy); display:block; font-size:.98rem;}
+  .bio-list li span{color:var(--muted); font-size:.88rem;}
+
+  /* Areas */
+  .areas-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .area-card{background:#fff; border:1px solid #E7E3D9; border-radius:8px; padding:30px 26px; transition:transform .2s, box-shadow .2s;}
+  .area-card:hover{transform:translateY(-4px); box-shadow:0 12px 24px rgba(18,42,67,.08);}
+  .area-icon{width:44px; height:44px; margin-bottom:16px; color:var(--gold);}
+  .area-card h3{font-size:1.1rem; margin-bottom:10px;}
+  .area-card p{font-size:.92rem; color:var(--muted);}
+
+  /* Artigos */
+  .articles-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .article-card{background:#fff; border-radius:8px; overflow:hidden; border:1px solid #E7E3D9;}
+  .article-thumb{height:130px; background:linear-gradient(135deg, var(--navy), #274a6d); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Playfair Display',serif; font-size:.85rem; letter-spacing:1px;}
+  .article-body{padding:22px;}
+  .article-date{font-size:.78rem; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:1px;}
+  .article-body h3{font-size:1.02rem; margin:8px 0 10px;}
+  .article-body p{font-size:.88rem; color:var(--muted); margin-bottom:14px;}
+  .article-link{font-size:.85rem; font-weight:700; color:var(--navy); border-bottom:2px solid var(--gold);}
+  .articles-note{margin-top:24px; font-size:.85rem; color:var(--muted); font-style:italic;}
+
+  /* Contato */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .contact-info-item{display:flex; gap:16px; margin-bottom:26px; align-items:flex-start;}
+  .contact-info-item .ico{width:22px; height:22px; color:var(--gold); flex-shrink:0; margin-top:3px;}
+  .contact-info-item strong{display:block; color:var(--navy); font-size:.95rem;}
+  .contact-info-item span, .contact-info-item a{color:var(--muted); font-size:.92rem;}
+  .contact-info-item a:hover{color:var(--gold);}
+  .social-row{display:flex; gap:14px; margin-top:10px;}
+  .social-row a{width:40px; height:40px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; transition:background .2s;}
+  .social-row a:hover{background:var(--gold); color:var(--navy-dark);}
+  .social-row svg{width:18px; height:18px;}
+
+  form{background:#fff; border:1px solid #E7E3D9; border-radius:8px; padding:32px;}
+  .form-group{margin-bottom:18px;}
+  label{display:block; font-size:.85rem; font-weight:700; color:var(--navy); margin-bottom:6px;}
+  input, textarea{width:100%; padding:12px 14px; border:1px solid #D8D3C7; border-radius:5px; font-family:inherit; font-size:.95rem;}
+  textarea{resize:vertical; min-height:110px;}
+  form .btn{width:100%; text-align:center; border:none; cursor:pointer; font-size:.95rem;}
+
+  footer{background:var(--navy-dark); color:#9AA9BB; padding:36px 0; text-align:center; font-size:.85rem;}
+  footer .social-row{justify-content:center; margin:16px 0;}
+  footer p{margin-top:6px;}
+
+  @media (max-width: 860px){
+    .bio-grid, .contact-grid{grid-template-columns:1fr;}
+    .areas-grid, .articles-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width: 620px){
+    nav ul{position:fixed; top:64px; left:0; right:0; background:var(--navy-dark); flex-direction:column; padding:20px 24px; gap:0; transform:translateY(-150%); transition:transform .25s; }
+    nav ul.open{transform:translateY(0);}
+    nav ul li{border-bottom:1px solid rgba(255,255,255,.08);}
+    nav ul li a{display:block; padding:14px 0;}
+    .menu-toggle{display:flex;}
+    .areas-grid, .articles-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2rem;}
+    .btn-outline{margin-left:0; margin-top:12px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo">Jacqueline <span>Gavião</span></div>
+    <nav>
+      <ul id="navMenu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#biografia">Biografia</a></li>
+        <li><a href="#areas">Áreas de Atuação</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <span class="tag">Advocacia Tributária</span>
+    <h1>Jacqueline Santos Gavião</h1>
+    <p class="subtitle">Consultoria e contencioso tributário, com atuação estratégica na prevenção e solução de questões fiscais.</p>
+    <span class="location">São Paulo, SP</span>
+    <div>
+      <a href="#contato" class="btn">Entrar em contato</a>
+      <a href="#areas" class="btn btn-outline">Áreas de atuação</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="biografia">
+  <div class="container bio-grid">
+    <div class="bio-photo">Foto profissional<br>(substituir por imagem real)</div>
+    <div>
+      <span class="tag">Biografia</span>
+      <h2 class="section-title">Trajetória profissional</h2>
+      <p>Advogada formada pela Universidade Presbiteriana Mackenzie, com mais de 15 anos de atuação dedicados ao Direito Tributário. Ao longo da carreira, atuou em escritórios de referência em São Paulo, desenvolvendo trabalho em consultoria tributária estratégica e em contencioso administrativo e judicial.</p>
+      <p style="margin-top:14px;">Sua atuação abrange desde a elaboração de pareceres técnicos e acompanhamento de teses tributárias até a condução de negociações junto a órgãos fiscais e à Procuradoria do Estado de São Paulo, sempre com foco em gestão de riscos e soluções adequadas a cada caso. Atualmente atua de forma autônoma, oferecendo atendimento próximo e individualizado.</p>
+
+      <ul class="bio-list">
+        <li><strong>Pós-graduação em Direito Tributário</strong><span>IBET – Instituto Brasileiro de Estudos Tributários</span></li>
+        <li><strong>Pós-graduação em Direito Empresarial</strong><span>EPD – Escola Paulista de Direito</span></li>
+        <li><strong>Graduação em Direito</strong><span>Universidade Presbiteriana Mackenzie</span></li>
+        <li><strong>Certificação em Reforma Tributária (em andamento)</strong><span>IBMEC – Instituto Brasileiro de Mercado de Capitais</span></li>
+        <li><strong>Idiomas</strong><span>Inglês avançado · Espanhol básico</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="areas">
+  <div class="container">
+    <span class="tag">Atuação</span>
+    <h2 class="section-title">Áreas de atuação</h2>
+    <div class="areas-grid">
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6l-9-4Z"/></svg>
+        <h3>Consultoria Tributária Estratégica</h3>
+        <p>Pareceres técnicos, respostas a consultas jurídicas e orientação para gestão de riscos fiscais.</p>
+      </div>
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h11l5 5v11H4Z"/><path d="M15 4v5h5"/><path d="M8 13h8M8 17h5"/></svg>
+        <h3>Planejamento Tributário</h3>
+        <p>Análise da estrutura fiscal do negócio, com foco em conformidade e otimização legal da carga tributária.</p>
+      </div>
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21h16"/><path d="M6 21V9l6-5 6 5v12"/><path d="M10 21v-6h4v6"/></svg>
+        <h3>Contencioso Tributário</h3>
+        <p>Elaboração de peças processuais judiciais e administrativas, e sustentações orais em tribunais.</p>
+      </div>
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        <h3>Recuperação de Tributos</h3>
+        <p>Análise e condução de pedidos de restituição de valores pagos indevidamente ao fisco.</p>
+      </div>
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10h18M6 10V6h12v4M4 10v10h16V10"/></svg>
+        <h3>Transações e Parcelamentos</h3>
+        <p>Assessoria em transações tributárias e negociação de parcelamento de débitos junto aos órgãos fiscais.</p>
+      </div>
+
+      <div class="area-card">
+        <svg class="area-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Regularização Fiscal</h3>
+        <p>Gestão de passivos tributários e emissão de certidões de regularidade fiscal.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="artigos">
+  <div class="container">
+    <span class="tag">Conteúdo</span>
+    <h2 class="section-title">Artigos</h2>
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="article-thumb">Direito Tributário</div>
+        <div class="article-body">
+          <span class="article-date">Em breve</span>
+          <h3>Título do artigo 1</h3>
+          <p>Breve resumo do conteúdo do artigo, explicando de forma objetiva o tema abordado.</p>
+          <a href="#" class="article-link">Ler mais →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb">Direito Tributário</div>
+        <div class="article-body">
+          <span class="article-date">Em breve</span>
+          <h3>Título do artigo 2</h3>
+          <p>Breve resumo do conteúdo do artigo, explicando de forma objetiva o tema abordado.</p>
+          <a href="#" class="article-link">Ler mais →</a>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-thumb">Direito Tributário</div>
+        <div class="article-body">
+          <span class="article-date">Em breve</span>
+          <h3>Título do artigo 3</h3>
+          <p>Breve resumo do conteúdo do artigo, explicando de forma objetiva o tema abordado.</p>
+          <a href="#" class="article-link">Ler mais →</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="articles-note">Espaço reservado para publicação de artigos próprios. Substitua os cards acima pelos textos reais assim que estiverem prontos.</p>
+  </div>
+</section>
+
+<section class="section section-alt" id="contato">
+  <div class="container contact-grid">
+    <div>
+      <span class="tag">Contato</span>
+      <h2 class="section-title">Fale comigo</h2>
+
+      <div class="contact-info-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8.09 9.6a16 16 0 0 0 6 6l1.15-1.15a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92Z"/></svg>
+        <div><strong>Telefone / WhatsApp</strong><a href="https://wa.me/5511982106490" target="_blank" rel="noopener">(11) 9 8210-6490</a></div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4Z"/><path d="m4 6 8 7 8-7"/></svg>
+        <div><strong>E-mail</strong><a href="mailto:jacquelinegaviao@gmail.com">jacquelinegaviao@gmail.com</a></div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div><strong>Localização</strong><span>São Paulo, SP</span></div>
+      </div>
+
+      <p style="margin-top:26px; font-weight:700; color:var(--navy); font-size:.9rem;">Redes sociais</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/jacqueline-santos-gavi%C3%A3o-" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3ZM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.98V21H9Z"/></svg>
+        </a>
+        <a href="https://instagram.com/SEU_USUARIO" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM18 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+        </a>
+      </div>
+      <p style="font-size:.8rem; color:var(--muted); margin-top:8px;">* Substitua o link do Instagram acima pelo perfil real.</p>
+    </div>
+
+    <form onsubmit="event.preventDefault(); window.location.href='mailto:jacquelinegaviao@gmail.com?subject=Contato pelo site&body=' + encodeURIComponent('Nome: ' + this.nome.value + '\nE-mail: ' + this.email.value + '\nMensagem: ' + this.mensagem.value);">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" required></textarea>
+      </div>
+      <button type="submit" class="btn">Enviar mensagem</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo" style="justify-content:center; display:flex;">Jacqueline <span>&nbsp;Gavião</span></div>
+    <div class="social-row">
+      <a href="https://www.linkedin.com/in/jacqueline-santos-gavi%C3%A3o-" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3ZM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.35-.03-3.08-1.88-3.08-1.88 0-2.17 1.47-2.17 2.98V21H9Z"/></svg>
+      </a>
+      <a href="https://instagram.com/SEU_USUARIO" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM18 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>
+      </a>
+    </div>
+    <p>Jacqueline Santos Gavião – Advocacia Tributária | São Paulo, SP</p>
+    <p>&copy; 2026 Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('navMenu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+</script>
+
+</body>
+</html>
